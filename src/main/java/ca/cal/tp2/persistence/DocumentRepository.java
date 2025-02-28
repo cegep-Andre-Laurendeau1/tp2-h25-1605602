@@ -5,17 +5,19 @@ import ca.cal.tp2.modele.DVD;
 import ca.cal.tp2.modele.Document;
 import ca.cal.tp2.modele.Livre;
 
+import java.util.List;
+
 public interface DocumentRepository {
 
     void save(DVD dvd);
     void save(Livre livre);
     void save(CD cd);
 
-    Document findByTitre(String titre);
-    Livre findByAuteur(String auteur);
+    List<Document> findByTitre(String titre);
+    List<Livre> findByAuteur(String auteur);
 //    void findByAnnee(String annee);
-    CD findByArtiste(String artiste);
-    DVD findByDirector(String director);
+    List<CD> findByArtiste(String artiste);
+    List<DVD> findByDirector(String director);
 
 
 }
