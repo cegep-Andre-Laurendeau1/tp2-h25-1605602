@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class Amende {
 
-    private int fineID;
+    private Long id;
     private double montant;
     private Date dateCreation;
     private boolean status;

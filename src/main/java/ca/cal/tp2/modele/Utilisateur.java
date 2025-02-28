@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 public abstract class  Utilisateur {
 
-    private int userID;
-    private String name;
-    private String email;
-    private String phoneNumber;
+    protected Long id;
+    protected String name;
+    protected String email;
+    protected String phoneNumber;
 
 
 

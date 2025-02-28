@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public abstract class Document {
-    private int documentID;
-    private String titre;
-    private int nombreExemplaires;
+    protected Long id;
+    protected String titre;
+    protected int nombreExemplaires;
 
 
 

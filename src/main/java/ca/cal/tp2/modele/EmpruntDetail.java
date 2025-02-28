@@ -8,10 +8,11 @@ import java.util.Date;
 @Data
 public class EmpruntDetail {
 
-    private int lineItemID;
+    private Long id;
     private Date dateRetourPrevue;
     private Date dateRetourActuelle;
     private String status;
+
 
 
 }

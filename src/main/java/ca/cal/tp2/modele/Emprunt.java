@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class Emprunt {
 
-    private int borrowID;
+    private Long id;
     private Date dateEmprunt;
     private String status;
 
