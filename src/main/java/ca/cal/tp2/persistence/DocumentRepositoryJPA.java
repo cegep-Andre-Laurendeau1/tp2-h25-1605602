@@ -36,6 +36,13 @@ public class DocumentRepositoryJPA implements DocumentRepository {
     }
 
     @Override
+    public void save(Document document) {
+        em.getTransaction().begin();
+        em.persist(document);
+        em.getTransaction().commit();
+    }
+
+    @Override
     public List<Document> findByTitre(String titre) {
         return em.createQuery("SELECT d FROM Document d WHERE d.titre LIKE :titre", Document.class)
                 .setParameter("titre", "%" + titre + "%")

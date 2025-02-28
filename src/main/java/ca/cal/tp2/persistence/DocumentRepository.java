@@ -12,6 +12,7 @@ public interface DocumentRepository {
     void save(DVD dvd);
     void save(Livre livre);
     void save(CD cd);
+    void save(Document document);
 
     List<Document> findByTitre(String titre);
     List<Livre> findByAuteur(String auteur);
