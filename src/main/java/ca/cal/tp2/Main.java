@@ -1,8 +1,8 @@
-package tp1;
+package ca.cal.tp2;
 
-import tp1.modele.Livre;
-import tp1.persistence.LivreRepository;
-import tp1.service.LivreService;
+import ca.cal.tp2.modele.Livre;
+import ca.cal.tp2.persistence.LivreRepository;
+import ca.cal.tp2.service.LivreService;
 
 import java.sql.SQLException;
 

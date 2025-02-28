@@ -1,4 +1,4 @@
-package tp1.service;
+package ca.cal.tp2.service;
 
 public class AmendeService {
 

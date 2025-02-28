@@ -1,6 +1,7 @@
-package tp1.persistence;
+package ca.cal.tp2.persistence;
 
-import tp1.modele.Livre;
+
+import ca.cal.tp2.modele.Livre;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

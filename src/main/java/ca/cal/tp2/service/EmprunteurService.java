@@ -1,4 +1,4 @@
-package tp1.service;
+package ca.cal.tp2.service;
 
 import tp1.modele.Document;
 

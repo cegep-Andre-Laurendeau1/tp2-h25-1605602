@@ -1,7 +1,8 @@
-package tp1.service;
+package ca.cal.tp2.service;
 
-import tp1.modele.Livre;
-import tp1.persistence.LivreRepository;
+
+import ca.cal.tp2.modele.Livre;
+import ca.cal.tp2.persistence.LivreRepository;
 
 public class LivreService {
 
