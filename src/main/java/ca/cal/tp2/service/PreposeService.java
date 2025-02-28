@@ -1,7 +1,7 @@
 package ca.cal.tp2.service;
 
-import tp1.modele.Document;
-import tp1.modele.Emprunteur;
+import ca.cal.tp2.modele.Document;
+import ca.cal.tp2.modele.Emprunteur;
 
 public class PreposeService {
 
