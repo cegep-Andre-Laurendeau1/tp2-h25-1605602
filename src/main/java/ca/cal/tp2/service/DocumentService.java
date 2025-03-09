@@ -24,7 +24,7 @@ public class DocumentService {
     }
 
     public void ajouteLivre(String titre, String ISBN, String auteur, String editeur, int nombreDePages) {
-        List<Document> documents = documentRepository.findByTitre(titre); 
+        List<Document> documents = documentRepository.findByTitre(titre);
 
         if (documents.isEmpty()) {
             documentRepository.save(new Livre(titre, 1, ISBN, auteur, editeur, nombreDePages));
