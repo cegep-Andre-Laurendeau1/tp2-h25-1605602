@@ -6,6 +6,7 @@ import ca.cal.tp2.modele.Document;
 import ca.cal.tp2.modele.Livre;
 import ca.cal.tp2.persistence.DocumentRepository;
 import ca.cal.tp2.service.dto.DocumentDTO;
+import ca.cal.tp2.service.dto.LivreDTO;
 
 import java.util.List;
 
@@ -66,6 +67,14 @@ public class DocumentService {
 
         return documents.stream().map(DocumentDTO::toDTO).toList();
     }
+
+    public List<LivreDTO> findByAuteur(String auteur) {
+        List<Livre> documents = documentRepository.findByAuteur(auteur);
+
+        return documents.stream().map(LivreDTO::toDTO).toList();
+    }
+
+
 
 
 
