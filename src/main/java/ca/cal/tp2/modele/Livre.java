@@ -5,9 +5,11 @@ import jakarta.persistence.AccessType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
-@Table
+@Table(name = "livre")
 @Access(AccessType.FIELD)
 public class Livre extends Document {
 

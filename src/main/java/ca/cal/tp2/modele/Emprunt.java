@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="emprunt")
 @Access(AccessType.FIELD)
 public class Emprunt {
 

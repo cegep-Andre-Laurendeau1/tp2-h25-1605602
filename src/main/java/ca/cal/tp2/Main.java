@@ -42,6 +42,7 @@ public class Main {
 
         // Ajouter un livre
         documentService.ajouteLivre("Titre du Livre", "1232321", "Auteur", "Éditeur", 200);
+//        documentService.ajouteLivre("Titre du Livre", "1232321", "Auteur", "Éditeur", 200);
 
         // Récupérer le livre sous forme de DTO
         List<DocumentDTO> livreDTO = documentService.findByTitle("Titre du Livre");

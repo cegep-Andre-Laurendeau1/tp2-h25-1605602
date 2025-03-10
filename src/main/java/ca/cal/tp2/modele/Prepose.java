@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
 @Access(AccessType.FIELD)
 public class Prepose extends Utilisateur {
 

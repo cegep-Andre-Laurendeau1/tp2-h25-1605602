@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name="dvd")
 @Access(AccessType.FIELD)
 public class DVD extends Document {
 

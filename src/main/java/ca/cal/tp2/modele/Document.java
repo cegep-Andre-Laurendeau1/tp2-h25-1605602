@@ -2,12 +2,15 @@ package ca.cal.tp2.modele;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "document")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Access(AccessType.FIELD)
 public abstract class Document {
 

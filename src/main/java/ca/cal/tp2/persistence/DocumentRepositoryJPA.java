@@ -5,69 +5,105 @@ import ca.cal.tp2.modele.DVD;
 import ca.cal.tp2.modele.Document;
 import ca.cal.tp2.modele.Livre;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.Persistence;
 
 import java.util.List;
 
 public class DocumentRepositoryJPA implements DocumentRepository {
 
     private EntityManager em;
-
-
-    @Override
-    public void save(DVD dvd) {
-        em.getTransaction().begin();
-        em.persist(dvd);
-        em.getTransaction().commit();
-    }
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tp2samuel.exe");
 
     @Override
     public void save(Livre livre) {
-        em.getTransaction().begin();
-        em.persist(livre);
-        em.getTransaction().commit();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(livre);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Error saving Livre: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void save(DVD dvd) {
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(dvd);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Error saving DVD: " + e.getMessage());
+        }
     }
 
     @Override
     public void save(CD cd) {
-        em.getTransaction().begin();
-        em.persist(cd);
-        em.getTransaction().commit();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(cd);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Error saving CD: " + e.getMessage());
+        }
     }
 
     @Override
     public void save(Document document) {
-        em.getTransaction().begin();
-        em.persist(document);
-        em.getTransaction().commit();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(document);
+            entityManager.getTransaction().commit();
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Error saving Document: " + e.getMessage());
+        }
     }
+
 
     @Override
     public List<Document> findByTitre(String titre) {
-        return em.createQuery("SELECT d FROM Document d WHERE d.titre LIKE :titre", Document.class)
-                .setParameter("titre", "%" + titre + "%")
-                .getResultList();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return entityManager.createQuery("SELECT d FROM Document d WHERE d.titre = :titre", Document.class)
+                    .setParameter("titre", titre)
+                    .getResultList();
+        } catch (NoResultException e) {
+            return List.of();  // Retourne une liste vide au lieu de null
+        }
     }
+
 
     @Override
     public List<Livre> findByAuteur(String auteur) {
-        return em.createQuery("SELECT l FROM Livre l WHERE l.auteur LIKE :auteur", Livre.class)
-                .setParameter("auteur", "%" + auteur + "%")
-                .getResultList();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return entityManager.createQuery("SELECT l FROM Livre l WHERE l.auteur LIKE :auteur", Livre.class)
+                    .setParameter("auteur", "%" + auteur + "%")
+                    .getResultList();
+        } catch (NoResultException e) {
+            return List.of();
+        }
     }
 
     @Override
     public List<CD> findByArtiste(String artiste) {
-        return em.createQuery("SELECT c FROM CD c WHERE c.artiste LIKE :artiste", CD.class)
-                .setParameter("artiste", "%" + artiste + "%")
-                .getResultList();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return entityManager.createQuery("SELECT c FROM CD c WHERE c.artiste LIKE :artiste", CD.class)
+                    .setParameter("artiste", "%" + artiste + "%")
+                    .getResultList();
+        } catch (NoResultException e) {
+            return List.of();
+        }
     }
 
     @Override
     public List<DVD> findByDirector(String director) {
-        return em.createQuery("SELECT d FROM DVD d WHERE d.director LIKE :director", DVD.class)
-                .setParameter("director", "%" + director + "%")
-                .getResultList();
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return entityManager.createQuery("SELECT d FROM DVD d WHERE d.director LIKE :director", DVD.class)
+                    .setParameter("director", "%" + director + "%")
+                    .getResultList();
+        } catch (NoResultException e) {
+            return List.of();
+        }
     }
 
 

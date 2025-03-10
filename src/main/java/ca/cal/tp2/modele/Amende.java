@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name="amende")
 @Access(AccessType.FIELD)
 public class Amende {
 

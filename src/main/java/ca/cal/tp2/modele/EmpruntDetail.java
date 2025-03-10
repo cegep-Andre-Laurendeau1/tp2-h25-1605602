@@ -8,7 +8,7 @@ import java.util.Date;
 
 
 @Entity
-@Table
+@Table(name ="emprunt_detail")
 @Access(AccessType.FIELD)
 public class EmpruntDetail {
 

@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table
+@Table(name="cd")
 @Access(AccessType.FIELD)
 public class CD extends Document {
 

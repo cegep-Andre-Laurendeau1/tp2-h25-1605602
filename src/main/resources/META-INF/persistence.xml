@@ -11,10 +11,13 @@
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:tp2samuel;DB_CLOSE_DELAY=-1"/>
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
+
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+
         </properties>
     </persistence-unit>
 
